@@ -17,4 +17,4 @@ RUN mkdir -p staticfiles
 RUN python manage.py collectstatic --noinput --settings=ai_blog_app.settings
 
 # Command to run the application
-CMD ["gunicorn", "ai_blog_app.wsgi", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "ai_blog_app.wsgi", "--bind", "0.0.0.0:8080"]
