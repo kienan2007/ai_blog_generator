@@ -51,25 +51,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ai_blog_app.wsgi.application'
 
-# ✅ Railway DB via environment variable
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         env='DATABASE_URL',
-#         default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',  # fallback for local dev
-#         conn_max_age=600,
-#     )
-# }
-
+#✅ Railway DB via environment variable
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mydatabase',   # DB name
-        'USER': 'myuser',
-        'PASSWORD': 'mypassword',
-        'HOST': 'db',  # name of docker service
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        env='DATABASE_URL',
+        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',  # fallback for local dev
+        conn_max_age=600,
+    )
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'mydatabase',   # DB name
+#         'USER': 'myuser',
+#         'PASSWORD': 'mypassword',
+#         'HOST': 'db',  # name of docker service
+#         'PORT': '5432',
+#     }
+# }
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
