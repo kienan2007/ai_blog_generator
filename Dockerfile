@@ -13,8 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code
 COPY . .
 
-RUN mkdir -p staticfiles
-RUN python manage.py collectstatic --noinput --settings=ai_blog_app.settings
-
 # Command to run the application
 CMD ["gunicorn", "ai_blog_app.wsgi", "--bind", "0.0.0.0:8080"]
